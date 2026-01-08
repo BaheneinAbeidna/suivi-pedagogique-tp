@@ -1,5 +1,11 @@
 <template>
   <div class="enseignants-page">
+    <nav class="navbar">
+      <a href="/etudiants">Étudiants</a> |
+      <a href="/enseignants" class="active">Enseignants</a> |
+      <a href="/absences">Absences</a> |
+      <a href="/encadrements">Encadrements</a>
+    </nav>
     <h1>Liste des Enseignants</h1>
 
     <div class="add-container">
@@ -26,12 +32,12 @@
           <td>{{ enseignant.specialite }}</td>
 
           <td class="students">
-            <template v-if="enseignant.etudiants.length === 0">
+            <template v-if="enseignant.encadrements.length === 0">
               Aucun étudiant
             </template>
             <template v-else>
-              <div v-for="e in enseignant.etudiants" :key="e.id">
-                - {{ e.nom }} {{ e.prenom }} ({{ e.matricule }})
+              <div v-for="encadrement in enseignant.encadrements" :key="encadrement.id">
+                - {{ encadrement.etudiant.nom }} {{ encadrement.etudiant.prenom }} ({{ encadrement.etudiant.matricule }})
               </div>
             </template>
           </td>
@@ -90,7 +96,7 @@ export default {
   },
   setup(props) {
     const showModal = ref(false);
-    const modalMode = ref('add'); // 'add' or 'edit'
+    const modalMode = ref('add');
 
     const form = reactive({
       id: null,
@@ -202,6 +208,31 @@ export default {
   font-family: Arial, sans-serif;
   background-color: #f2f7f9;
   margin: 20px;
+}
+
+.navbar {
+  background: #2c3e50;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.navbar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #27ae60;
+}
+
+.navbar a.active {
+  color: #27ae60;
+  text-decoration: underline;
 }
 
 .enseignants-page h1 {

@@ -1,5 +1,11 @@
 <template>
   <div class="etudiants-page">
+    <nav class="navbar">
+      <a href="/etudiants" class="active">Étudiants</a> |
+      <a href="/enseignants">Enseignants</a> |
+      <a href="/absences">Absences</a> |
+      <a href="/encadrements">Encadrements</a>
+    </nav>
     <h1>Liste des Étudiants</h1>
 
     <div class="add-container">
@@ -151,6 +157,31 @@ export default {
   font-family: Arial, sans-serif;
   background-color: #f2f7f9;
   margin: 20px;
+}
+
+.navbar {
+  background: #2c3e50;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.navbar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #27ae60;
+}
+
+.navbar a.active {
+  color: #27ae60;
+  text-decoration: underline;
 }
 
 /* page header */

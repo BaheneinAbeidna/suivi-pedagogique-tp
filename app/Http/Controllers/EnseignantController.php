@@ -13,7 +13,7 @@ class EnseignantController extends Controller
      */
     public function index()
     {
-        $enseignants = Enseignant::with('etudiants')->get();
+        $enseignants = Enseignant::with(['encadrements.etudiant'])->get();
 
         return Inertia::render('Enseignants', [
             'enseignants' => $enseignants
@@ -64,7 +64,7 @@ class EnseignantController extends Controller
     {
         $enseignant = Enseignant::findOrFail($id);
 
-        if ($enseignant->etudiants()->count() > 0) {
+        if ($enseignant->encadrements()->count() > 0) {
             return redirect()->back(303)->with('error', 'Impossible de supprimer cet enseignant car il a des étudiants assignés.');
         }
 

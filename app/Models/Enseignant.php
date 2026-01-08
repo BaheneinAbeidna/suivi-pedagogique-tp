@@ -23,4 +23,9 @@ class Enseignant extends Model
     {
         return $this->hasMany(Etudiant::class, 'enseignant_id');
     }
+
+    public function encadrements()
+    {
+        return $this->hasMany(Encadrement::class);
+    }
 }

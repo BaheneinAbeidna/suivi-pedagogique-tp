@@ -25,4 +25,14 @@ class Etudiant extends Model
     {
         return $this->belongsTo(Enseignant::class, 'enseignant_id');
     }
+
+    public function absences()
+    {
+        return $this->hasMany(Absence::class);
+    }
+
+    public function encadrement()
+    {
+        return $this->hasOne(Encadrement::class);
+    }
 }
