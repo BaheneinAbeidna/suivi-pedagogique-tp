@@ -68,7 +68,7 @@
 
           <div class="modal-buttons">
             <button type="submit" class="btn-add">{{ modalMode === 'add' ? 'Ajouter' : 'Mettre à jour' }}</button>
-            <button type="button" @click="closeModal" class="btn-delete">Annuler</button>
+            <button type="button" @click="closeModal" class="btn-cancel">Annuler</button>
           </div>
         </form>
       </div>
@@ -263,6 +263,15 @@ tbody tr:hover {
   color: #e74c3c;
   background: none;
   border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-cancel {
+  color: white;
+  background: #e74c3c;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
 }

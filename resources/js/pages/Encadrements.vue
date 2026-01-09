@@ -92,9 +92,9 @@ export default {
     }
 
     const deleteEncadrement = (id) => {
-      if (confirm('Supprimer cet encadrement ?')) {
+    
         Inertia.delete(`/encadrements/${id}`)
-      }
+      
     }
 
     return {

@@ -323,6 +323,8 @@ tbody tr:hover {
   color: white;
   background: #e74c3c;
   border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
 }
